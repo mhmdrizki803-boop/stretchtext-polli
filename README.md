@@ -22,6 +22,28 @@ Built on [Pollinations](https://pollinations.ai) text models. Readers pay with t
 3. The expanded passage appears as a collapsible block right where you selected it.
 4. Click the **Stretched** summary to toggle it.
 
+
+## Pollinations integration (verified)
+
+The extension calls the Pollinations text chat API directly. Code path: [`src/content.js`](src/content.js), function `stretch()`:
+
+```js
+const res = await fetch("https://gen.pollinations.ai/v1/chat/completions", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
+    body: JSON.stringify({
+        model, // Pollinations text model, default deepseek/deepseek-v4-flash
+        messages: [
+            { role: "system", content: "You expand dense passages into stretchtext..." },
+            { role: "user", content: StretchCore.buildStretchPrompt(text) },
+        ],
+        n: 1,
+    }),
+});
+```
+
+Users paste a key from [enter.pollinations.ai/keys](https://enter.pollinations.ai/keys) in the popup, and each Stretch request bills their own Pollen (Bring Your Own Pollen). Settings: [`src/popup.js`](src/popup.js), storage via `chrome.storage.sync`.
+
 ## Demo
 
 Open [demo.html](demo.html) for a static preview of the UI.
