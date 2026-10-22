@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>StretchText Polli</title>
+  <style>
+    body { width: 300px; font: 14px/1.5 system-ui, sans-serif; margin: 0; padding: 14px; }
+    h1 { font-size: 15px; margin: 0 0 10px; color: #4c1d95; }
+    label { display: block; margin: 8px 0 4px; font-weight: 600; font-size: 12px; }
+    input { width: 100%; padding: 6px; border: 1px solid #c4b5fd; border-radius: 6px; box-sizing: border-box; }
+    button { margin-top: 12px; width: 100%; padding: 8px; background: #4c1d95; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; }
+    button:hover { background: #6d28d9; }
+    #msg { font-size: 12px; margin-top: 8px; min-height: 16px; }
+    .hint { font-size: 11px; color: #6b7280; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>StretchText Polli</h1>
+  <label for="key">Pollinations API key</label>
+  <input id="key" type="password" placeholder="sk-or-..." />
+  <label for="model">Model</label>
+  <input id="model" type="text" placeholder="deepseek/deepseek-v4-flash" />
+  <button id="save">Save</button>
+  <div id="msg"></div>
+  <div class="hint">Select any dense passage on a page, click <b>Stretch</b>, and it expands in place. You pay with your own Pollen. Get a key at <b>enter.pollinations.ai/keys</b>.</div>
+  <script src="popup.js"></script>
+</body>
+</html>

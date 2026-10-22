@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>StretchText Polli — Demo</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 780px; margin: 40px auto; padding: 0 24px; color: #1f2937; line-height: 1.7; }
+  h1 { color: #4c1d95; }
+  .demo { border: 1px solid #ddd; border-radius: 10px; padding: 20px 24px; margin: 24px 0; }
+  .btn { display: inline-block; font: 600 12px system-ui; color: #fff; background: #4c1d95; border-radius: 6px; padding: 6px 10px; }
+  details.polli-stretch { margin-top: 10px; border-left: 3px solid #a78bfa; background: #f5f3ff; padding: 0 12px; border-radius: 4px; }
+  details.polli-stretch summary { cursor: pointer; font-weight: 700; color: #4c1d95; padding: 6px 0; }
+  .tip { font-size: 13px; color: #6b7280; }
+  .foot { margin-top: 48px; font-size: 12px; color: #9ca3af; }
+</style>
+</head>
+<body>
+  <h1>StretchText Polli</h1>
+  <p class="tip">Select any dense passage on this page and click <span class="btn">Stretch</span> — in the real extension the selection expands in place. This demo shows the result block.</p>
+
+  <div class="demo">
+    <p id="sample">Stretchtext is a hypertext idea from 1967 where a passage grows to show more detail exactly where the reader wants it, and shrinks back when they do not. Writing every level by hand was too much work, so the idea never caught on — until generated text made expansion cheap.</p>
+    <details class="polli-stretch">
+      <summary>Stretched</summary>
+      <p>Stretchtext, first described by Ted Nelson in 1967, is a way of reading and writing where a single sentence can open up into a longer explanation directly beneath itself. Instead of jumping to another page, the reader simply clicks and the text grows in place, adding examples, reasoning, and context exactly where it is most useful. When the extra detail has served its purpose, it collapses back into the original compact passage. Early pioneers found the idea compelling but impractical: authors would have needed to hand-write every expansion level for every passage, and the effort was simply not sustainable. Years later, text-generating models removed that bottleneck entirely. A model can expand any dense sentence on demand, which means the oldest problem of stretchtext — the cost of writing the extra levels — disappears, and the 1967 idea finally becomes practical.</p>
+    </details>
+  </div>
+
+  <div class="demo">
+    <h2>How it works</h2>
+    <ol>
+      <li>Select 3–600 characters on any page.</li>
+      <li>Click the floating <b>Stretch</b> button.</li>
+      <li>The passage expands to ~3× length via Pollinations text models.</li>
+      <li>You pay with your own Pollen — no extension servers.</li>
+    </ol>
+  </div>
+
+  <div class="foot">Quest app submission — platform: browser-ext. Powered by <a href="https://pollinations.ai/?ref=badge">Pollinations</a>.</div>
+</body>
+</html>

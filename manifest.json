@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "StretchText Polli",
+  "version": "0.1.0",
+  "description": "Turn any web page into stretchtext: select a dense passage, click Stretch, and it expands in place — powered by Pollinations text models and your own Pollen.",
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": ["https://gen.pollinations.ai/*"],
+  "action": {
+    "default_popup": "src/popup.html",
+    "default_title": "StretchText Polli"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/stretch-core.js", "src/content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
