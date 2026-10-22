@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import pkg from "../src/polli-client.js";
+import pkg from "../pollinations-client.js";
 const { API_URL, stretchText } = pkg;
 
 test("stretchText posts to Pollinations with bearer key", async (t) => {
