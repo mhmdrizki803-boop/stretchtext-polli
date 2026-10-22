@@ -48,26 +48,14 @@
     async function stretch(text) {
         const settings = await getSettings();
         const key = settings.apiKey || "";
-        const model = settings.model || "deepseek/deepseek-v4-flash";
         if (!key) {
             return "Open the StretchText Polli popup and add your Pollinations API key (enter.pollinations.ai/keys).";
         }
-        const res = await fetch("https://gen.pollinations.ai/v1/chat/completions", {
-            method: "POST",
-            headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
-            body: JSON.stringify({
-                model,
-                messages: [
-                    { role: "system", content: "You expand dense passages into stretchtext: longer, readable, same meaning." },
-                    { role: "user", content: StretchCore.buildStretchPrompt(text) },
-                ],
-                n: 1,
-            }),
-        });
-        if (!res.ok) return `API error HTTP ${res.status}`;
-        const data = await res.json();
-        const msg = data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content;
-        return (msg !== undefined && msg !== null) ? msg : "Empty response.";
+        try {
+            return await PolliClient.stretchText(text, key, settings.model);
+        } catch (err) {
+            return err.message || "Pollinations request failed.";
+        }
     }
 
     function insertStretch(selection) {
